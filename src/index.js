@@ -57,7 +57,7 @@ app.post("/login", async (req,res) =>{
       res.send("User name not found");
     }
 
-    //compare hash passwor with regular password
+    //compare hash password with regular password
     const isPasswordMatch = await bcrypt.compare(req.body.password, check.password);
     if (isPasswordMatch){
       res.render("home");

@@ -1,92 +1,79 @@
 <!DOCTYPE html>
+<!-- HTML5 document type declaration for standards compliance and browser behavior -->
 <html>
 <head>
+  <!-- Ensures proper scaling and rendering on all devices -->
   <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-  <title>Buddy Support</title>
-  <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Buddy Support</title> <!-- Title displayed in browser tab -->
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS for styling -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet"> <!-- Google fonts link for Poppins font -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
   <section class="header-chatbot">
     <nav>
-      <a href="index.html"><img src="images/brain-icon-png-2536.png"></a>
+      <a href="index.html"><img src="images/brain-icon-png-2536.png"></a> <!-- Logo linking back to homepage -->
       <div class="nav-links" id="navLinks">
-       
-        <i class="fa fa-times" onclick="hideMenu()"></i>
-         <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="login.html">LOGIN/REGISTER</a></li>
-          <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li>
-         </ul>
+        <i class="fa fa-times" onclick="hideMenu()"></i> <!-- Icon to close mobile menu -->
+        <ul>
+          <li><a href="index.html">HOME</a></li> <!-- Navigation link to home -->
+          <li><a href="about.html">ABOUT</a></li> <!-- Navigation link to about page -->
+          <li><a href="contact.html">CONTACT</a></li> <!-- Navigation link to contact page -->
+          <li><a href="login.html">LOGIN/REGISTER</a></li> <!-- Navigation link to login/register page -->
+          <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li> <!-- Navigation link to chatbot interaction page -->
+        </ul>
       </div>
-      <i class="fa fa-bars" onclick="showMenu()"></i>
-
+      <i class="fa fa-bars" onclick="showMenu()"></i> <!-- Icon to open mobile menu -->
     </nav>
     
-      <div class="text-box-bot chat-container">
-        <h1 class="chat-title">Chat with BuddySupport</h1>
-        <input type="text" id="userInput" class="chat-input" placeholder="Ask something...">
-        <button class="chat-send-button" onclick="sendToChatbot()">Send</button>
-        <p id="response" class="chat-response"></p>
+    <div class="text-box-bot chat-container">
+      <h1 class="chat-title">Chat with BuddySupport</h1> <!-- Title for the chat interface -->
+      <input type="text" id="userInput" class="chat-input" placeholder="Ask something..."> <!-- Input field for user to enter chat -->
+      <button class="chat-send-button" onclick="sendToChatbot()">Send</button> <!-- Button to send chat input to backend -->
+      <p id="response" class="chat-response"></p> <!-- Container to display chatbot's response -->
 
-        <script>
-          async function sendToChatbot() {
-            const input = document.getElementById('userInput').value;
-            const responseContainer = document.getElementById('response');
+      <script>
+        async function sendToChatbot() {
+          const input = document.getElementById('userInput').value; // Gets user input from the input field
+          const responseContainer = document.getElementById('response'); // Reference to the response container
 
-            try {
-              const response = await fetch('http://localhost:3000/api/chat', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  messages: [
-                    { role: 'user', content: input }
-                  ]
-                })
-              });
+          try {
+            const response = await fetch('http://localhost:3000/api/chat', { // POST request to the server-side API
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                messages: [
+                  { role: 'user', content: input }
+                ]
+              })
+            });
 
-              if (response.ok) {
-                const data = await response.json();
-                responseContainer.textContent = data.choices[0].message.content;
-              } else {
-                throw new Error('Failed to get response');
-              }
-            } catch (error) {
-              console.error('Error:', error);
-              responseContainer.textContent = 'Error communicating with the chatbot.';
+            if (response.ok) {
+              const data = await response.json(); // Parsing the JSON response from the server
+              responseContainer.textContent = data.choices[0].message.content; // Displaying the chatbot's response
+            } else {
+              throw new Error('Failed to get response');
             }
-          } 
-
-        </script>
-
-        <!--<input type="text" id="userInput" name="userInput" placeholder="Message Buddy Support..." class="inputUser">-->
-      </div>
-
-    
+          } catch (error) {
+            console.error('Error:', error);
+            responseContainer.textContent = 'Error communicating with the chatbot.';
+          }
+        } 
+      </script>
+    </div>
   </section>
 
-
-
-
-  
   <script>
     var navLinks = document.getElementById("navLinks");
     function showMenu(){
-      navLinks.style.right = "0px";
-      
+      navLinks.style.right = "0px"; // Styles to show the navigation links
     }
     function hideMenu(){
-      navLinks.style.right = "-200px";
-      
+      navLinks.style.right = "-200px"; // Styles to hide the navigation links
     }
-    
   </script>
-
 </body>
 </html>

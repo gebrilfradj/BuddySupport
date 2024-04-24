@@ -1,67 +1,53 @@
 <!DOCTYPE html>
+<!-- HTML5 Document Type Definition, defining this as an HTML5 document -->
 <html>
 <head>
-  <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-  <title>Buddy Support</title>
-  <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings to ensure the site is mobile-responsive -->
+  <title>Buddy Support</title> <!-- Title of the webpage, visible in the browser tab -->
+  <link rel="stylesheet" href="styles.css"> <!-- External CSS for custom styles -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"> <!-- Optimizes connection to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet"> <!-- Google Fonts link for Poppins font with specified weights -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Font Awesome for icons -->
 </head>
 <body>
   <section class="header">
     <nav>
-      <a href="index.html"><img src="images/brain-icon-png-2536.png"></a>
+      <a href="index.html"><img src="images/brain-icon-png-2536.png"></a> <!-- Logo linking back to the homepage -->
       <div class="nav-links" id="navLinks">
-       
-        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <i class="fa fa-times" onclick="hideMenu()"></i> <!-- Icon for closing the mobile menu -->
          <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="login.html">LOGIN/REGISTER</a></li>
-          <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li>
+          <li><a href="index.html">HOME</a></li> <!-- Navigation link to the homepage -->
+          <li><a href="about.html">ABOUT</a></li> <!-- Navigation link to the about page -->
+          <li><a href="contact.html">CONTACT</a></li> <!-- Navigation link to the contact page -->
+          <li><a href="login.html">LOGIN/REGISTER</a></li> <!-- Navigation link to the login/register page -->
+          <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li> <!-- Navigation link to the chatbot interaction page -->
          </ul>
       </div>
-      <i class="fa fa-bars" onclick="showMenu()"></i>
-
+      <i class="fa fa-bars" onclick="showMenu()"></i> <!-- Icon for opening the mobile menu -->
     </nav>
 
     <div class="text-box">
-      <h1>Welcome To Buddy Support</h1>
-      <p>As BuddySupport, I'm a chatbot here to offer you support and resources for dealing with mental health challenges. My goal is to create a safe <br>and non-judgmental space where you can express your feelings, seek information, and access resources related to mental well-being. Feel free to talk to me about <br>anything on your mind—I'm here to help you navigate through any difficulties you may be facing.
-
+      <h1>Welcome To Buddy Support</h1> <!-- Main heading of the page -->
+      <p>As BuddySupport, I'm a chatbot here to offer you support and resources for dealing with mental health challenges. My goal is to create a safe and non-judgmental space where you can express your feelings, seek information, and access resources related to mental well-being. Feel free to talk to me about anything on your mind—I'm here to help you navigate through any difficulties you may be facing.
       </p>
-      <a href="chatbot.html" class="hero-btn">Click To talk To Me!!</a>
-      <!--<input type="text" id="userInput" name="userInput" placeholder="Message Buddy Support..." class="inputUser">-->
+      <a href="chatbot.html" class="hero-btn">Click To talk To Me!!</a> <!-- Call to action button -->
     </div>
   </section>
 
-
-
   <section class="cta">
-    <h1>Our Mission</h1>
-    <p>Empowering your mental well-being journey with compassionate <br>support and understanding, every step of the way</p>
-    <a href="contact.html" class="hero-btn">CONTACT US</a>
+    <h1>Our Mission</h1> <!-- Section heading for company mission -->
+    <p>Empowering your mental well-being journey with compassionate support and understanding, every step of the way</p>
+    <a href="contact.html" class="hero-btn">CONTACT US</a> <!-- Button linking to the contact page -->
   </section>
 
-
-
-
-
-  
   <script>
-    var navLinks = document.getElementById("navLinks");
+    var navLinks = document.getElementById("navLinks"); // JavaScript to manage navigation menu visibility
     function showMenu(){
-      navLinks.style.right = "0px";
-      
+      navLinks.style.right = "0px"; // Show the navigation menu
     }
     function hideMenu(){
-      navLinks.style.right = "-200px";
-      
+      navLinks.style.right = "-200px"; // Hide the navigation menu
     }
-    
   </script>
-
 </body>
 </html>

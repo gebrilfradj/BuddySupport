@@ -1,58 +1,55 @@
 <!DOCTYPE html>
+<!-- Defines the document type to be HTML5, ensuring modern standards for rendering -->
 <html>
 <head>
+  <!-- Viewport setting for responsive web design, scaling for different devices -->
   <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-  <title>Buddy Support</title>
+  <title>Buddy Support</title> <!-- Sets the page title shown in the browser tab -->
+  <!-- External CSS linked for styling the webpage -->
   <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <!-- Section for the website's sub-header, including navigation -->
   <section class="sub-header">
     <nav>
+      <!-- Logo linking to the homepage for easy navigation -->
       <a href="index.html"><img src="images/brain-icon-png-2536.png"></a>
       <div class="nav-links" id="navLinks">
-       
+        <!-- Icon for closing the mobile navigation menu -->
         <i class="fa fa-times" onclick="hideMenu()"></i>
-         <ul>
+        <ul>
+          <!-- List of navigation links for site navigation -->
           <li><a href="index.html">HOME</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="contact.html">CONTACT</a></li>
           <li><a href="login.html">LOGIN/REGISTER</a></li>
           <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li>
-         </ul>
+        </ul>
       </div>
+      <!-- Icon to expand the mobile navigation menu -->
       <i class="fa fa-bars" onclick="showMenu()"></i>
-
     </nav>
-
+    <!-- Title for the current page section -->
     <h1>Login/Register</h1>
-    
   </section>
 
+  <!-- Section specifically for login interactions, placeholder text here -->
   <section class="login-time">
    <p>Here is the login method</p>
   </section>
 
-
-  
-
-
-
-
-  
+  <!-- JavaScript for dynamic navigation menu behavior -->
   <script>
     var navLinks = document.getElementById("navLinks");
     function showMenu(){
-      navLinks.style.right = "0px";
-      
+      navLinks.style.right = "0px"; // Show the menu by adjusting the right property
     }
     function hideMenu(){
-      navLinks.style.right = "-200px";
-      
+      navLinks.style.right = "-200px"; // Hide the menu by adjusting the right property
     }
-    
   </script>
 
 </body>

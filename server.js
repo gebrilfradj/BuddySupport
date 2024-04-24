@@ -1,40 +1,47 @@
+// Load environment variables from a .env file
 require('dotenv').config();
+
+// Import necessary modules
 const express = require('express');
 const openai = require('openai');
 const cors = require('cors');
+
+// Create an Express app
 const app = express();
 
-
+// Enable CORS with default settings for all routes
 app.use(cors());
 
-
+// Define and apply CORS options for more fine-grained control
 const corsOptions = {
-  origin: 'http://localhost:5501',  
+  origin: 'http://localhost:5501',
   optionsSuccessStatus: 200 
 };
-
 app.use(cors(corsOptions));
 
+// Log HTTP requests for debugging
 app.use((req, res, next) => {
   console.log(`Received ${req.method} request from ${req.origin} at ${req.url}`);
   next();
 });
 
-
+// Initialize the OpenAI client with an API key
 const client = new openai.OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
+// Middleware to parse JSON bodies in requests
 app.use(express.json());
 
+// Define a POST route to handle chat interactions using OpenAI's API
 app.post('/api/chat', async (req, res) => {
   try {
-    completion = await client.chat.completions.create({
+    const completion = await client.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         {
           "role": "system",
-          "content": "You are BuddySupport. BuddySupport strictly focuses on mental health support. It avoids discussing topics outside of mental health to maintain its purpose and ensure the conversation remains relevant and helpful for users seeking assistance."
+          "content": "You are BuddySupport. BuddySupport focuses on mental health support."
         },
         req.body.messages[0]
       ]
@@ -46,5 +53,6 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+// Set the server to listen on a port and log the status
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
