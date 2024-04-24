@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+  <title>Buddy Support</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="header-chatbot">
+    <nav>
+      <a href="index.html"><img src="images/brain-icon-png-2536.png"></a>
+      <div class="nav-links" id="navLinks">
+       
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+         <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="login.html">LOGIN/REGISTER</a></li>
+          <li><a href="chatbot.html">SPEAK TO BUDDYSUPPORT</a></li>
+         </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+
+    </nav>
+    
+      <div class="text-box-bot chat-container">
+        <h1 class="chat-title">Chat with BuddySupport</h1>
+        <input type="text" id="userInput" class="chat-input" placeholder="Ask something...">
+        <button class="chat-send-button" onclick="sendToChatbot()">Send</button>
+        <p id="response" class="chat-response"></p>
+
+        <script>
+          async function sendToChatbot() {
+            const input = document.getElementById('userInput').value;
+            const responseContainer = document.getElementById('response');
+
+            try {
+              const response = await fetch('http://localhost:3000/api/chat', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  messages: [
+                    { role: 'user', content: input }
+                  ]
+                })
+              });
+
+              if (response.ok) {
+                const data = await response.json();
+                responseContainer.textContent = data.choices[0].message.content;
+              } else {
+                throw new Error('Failed to get response');
+              }
+            } catch (error) {
+              console.error('Error:', error);
+              responseContainer.textContent = 'Error communicating with the chatbot.';
+            }
+          } 
+
+        </script>
+
+        <!--<input type="text" id="userInput" name="userInput" placeholder="Message Buddy Support..." class="inputUser">-->
+      </div>
+
+    
+  </section>
+
+
+
+
+  
+  <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+      navLinks.style.right = "0px";
+      
+    }
+    function hideMenu(){
+      navLinks.style.right = "-200px";
+      
+    }
+    
+  </script>
+
+</body>
+</html>
