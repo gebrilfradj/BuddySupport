@@ -12,9 +12,6 @@ Demonstration:
 https://youtu.be/u9zidY8NaXQ
 
 
-
-Instructions:
-
 Technical Details: The main code for the frontend UI has been done in HTML/CSS and the backend was done using JavaScript and the OpenAI API which allows for the implementation of the chatbot. Using specific libraries and resources such as the API and Cors, the backend runs so that it sends requests to the AI and responses it gets are then seen on screen. Downloaded additional packs such as bcrypt, cors, express, node, and mongodb.
 
 
