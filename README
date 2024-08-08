@@ -1,18 +1,48 @@
 # Buddy Support
 
-A chatbot designed to provide support and resources for individuals dealing with mental health challenges. 
-The chatbot aims to create a safe and non-judgmental space for users to express their feelings, seek information, and 
-access resources related to mental well-being.
+## Description
+Buddy Support is a chatbot designed to provide support and resources for individuals dealing with mental health challenges. The chatbot aims to create a safe and non-judgmental space for users to express their feelings, seek information, and access resources related to mental well-being.
 
+## Features
+- **Chatbot Interaction**: Users can interact with the chatbot to discuss their mental health issues in a supportive environment.
+- **Resource Access**: Provides links and information on mental health resources.
+- **Privacy Focused**: Ensures user conversations are kept private and secure.
 
+## Technology Stack
+- **Frontend**: HTML, CSS
+- **Backend**: JavaScript, Node.js
+- **Database**: MongoDB
+- **APIs**: OpenAI API
+- **Additional Libraries**: bcrypt, cors, express
 
 ## Getting Started
 
-Demonstration:
-https://youtu.be/u9zidY8NaXQ
+### Prerequisites
+- Node.js
+- MongoDB
+- An API key for OpenAI
+
+### Installation Instructions
+1. **Clone the repository:**
 
 
-Technical Details: The main code for the frontend UI has been done in HTML/CSS and the backend was done using JavaScript and the OpenAI API which allows for the implementation of the chatbot. Using specific libraries and resources such as the API and Cors, the backend runs so that it sends requests to the AI and responses it gets are then seen on screen. Downloaded additional packs such as bcrypt, cors, express, node, and mongodb.
+2. **Navigate to the project directory:**
 
 
-Installation Instructions: To view or use the BuddySupport website, currently there is a local way to view the website. Simple download all the files, use the NodeJS package on the computer to run the server files. This will get the server online on local host 3000, and then running the live server for chatbot.html will put it online on port 5501(or 5500 if it is not taken already) and allow users to view this way. Make sure once everything is running to not stay on the live server in your browser and instead look up localhost:5500 or 5501 to get the actual website up instead of the live server. Any updates to the database will be seen in the terminal window and any post requests made by the user to the Openai API will be shown in the terminal too.
+3. **Install dependencies:**
+
+
+4. **Start the server:**
+
+
+
+5. **Access the Application:**
+- Open your browser and navigate to `localhost:5501` to view the chatbot interface.
+
+### Demonstration
+- **YouTube Link**: [Watch the demo](https://youtu.be/u9zidY8NaXQ)
+
+## Usage
+- Launch the website as mentioned in the installation section.
+- Use the chatbot by typing inquiries and receiving responses related to mental health.
+- Access links and resources provided by the chatbot for further information.
