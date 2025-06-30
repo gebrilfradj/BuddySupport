@@ -5,7 +5,7 @@ Buddy Support is a chatbot designed to provide support and resources for individ
 
 ## Features
 - **Chatbot Interaction**: Users can interact with the chatbot to discuss their mental health issues in a supportive environment.
-- **Resource Access**: Provides links and information on mental health resources.n
+- **Resource Access**: Provides links and information on mental health resources.
 - **Privacy Focused**: Ensures user conversations are kept private and secure.
 
 ## Technology Stack
