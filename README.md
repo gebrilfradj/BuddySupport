@@ -59,12 +59,6 @@ The app currently runs as **two separate Express processes** plus a static front
    npm install
    ```
 
-   > `server.js` also requires `openai`, `cors`, and `dotenv`, which are not yet listed in `package.json`. Until they are added, install them explicitly:
-   >
-   > ```bash
-   > npm install openai cors dotenv
-   > ```
-
 3. **Add your OpenAI key**
 
    Create a `.env` file in the project root (it is already git-ignored):
@@ -81,8 +75,8 @@ The app currently runs as **two separate Express processes** plus a static front
 5. **Start both servers**
 
    ```bash
-   node src/index.js   # auth server on http://localhost:5000
-   node server.js      # chat API on http://localhost:3000
+   npm start        # chat API on http://localhost:3000
+   npm run start:auth   # auth server on http://localhost:5000
    ```
 
 6. **Serve the frontend**
@@ -98,7 +92,7 @@ The app currently runs as **two separate Express processes** plus a static front
 
 ## Known limitations
 
-- The auth server and chat server are not yet unified; a single entry point with an `npm start` script would simplify setup.
+- The auth server and chat server are not yet unified; a single entry point would simplify setup further.
 - Sessions are not persisted after login, so the chatbot page is not gated behind authentication.
 - Conversation history is not stored — each message is sent to OpenAI independently.
 - Messages are sent to the OpenAI API and are subject to OpenAI's data policies.
