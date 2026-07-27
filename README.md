@@ -94,7 +94,7 @@ The app currently runs as **two separate Express processes** plus a static front
 
 - The auth server and chat server are not yet unified; a single entry point would simplify setup further.
 - Sessions are not persisted after login, so the chatbot page is not gated behind authentication.
-- Conversation history is not stored — each message is sent to OpenAI independently.
+- Conversation history is not stored, each message is sent to OpenAI independently.
 - Messages are sent to the OpenAI API and are subject to OpenAI's data policies.
 
 ## License
